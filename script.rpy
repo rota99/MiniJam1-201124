@@ -1,5 +1,12 @@
 ﻿# Questo è il file script.rpy per il tuo progetto Ren'Py
+# Definizione dei personaggi
+define luca = Character("Luca")
+define chiara = Character("Chiara")
+
 label start:
+
+    play music "end_of_day.mp3"
+
     # Introduzione alla storia
     scene bg room with fade
     show character luca happy
@@ -9,96 +16,108 @@ label start:
     menu:
         "Turn off the light":
             "You reach out and switch off the light. The room falls into a calming darkness, and you feel yourself drifting into sleep."
-            jump next_scene
+            jump dream_intro
 
         "Leave the light on":
             "You decide to leave the light on, its faint glow offering a comforting presence as you close your eyes."
-            jump next_scene
+            jump dream_intro
+
+label dream_intro:
     
+    play music "denial.mp3"
 
-
-label next_scene:
     scene bg room with fade
     show character chiara neutral
     
-    " Good night !!!"
-    " zzzzzz  ... zzzz"
+    "Good night..."
+    "zzzz... zzzz..."
     "Chiara is deep asleep, her mind wandering into a strange, dark dream. Suddenly, she finds herself in a vast, shadowy forest. The air is heavy, and the silence is unsettling."
 
     "Out of the mist, a terrifying creature appears, its glowing eyes locking onto her. It's tall, monstrous, and moves with an unnatural speed."
+    jump denial_stage
+
+# Stage 1: Denial
+label denial_stage:
+    scene bg dream_forest with fade
+    "Chiara is in the dark forest, surrounded by tall trees and a strange mist. She hears a growl behind her."
+    "Her chest tightens, but she shakes her head. 'This isn’t real,' she whispers. 'It’s just a dream.'"
+    "The monster’s growl gets louder, and its shadow moves closer. Chiara doesn’t want to believe it. She keeps walking forward."
 
     menu:
+        "Keep ignoring the sound":
+            "Chiara walks faster, pretending everything is fine. But her heart starts beating faster."
+            jump anger_stage
+
+        "Look back at the sound":
+            "Chiara turns her head, and she sees glowing eyes staring at her. She freezes in fear."
+            jump anger_stage
+
+# Stage 2: Anger
+label anger_stage:
+    
+    play music "anger.mp3"
+
+    scene bg dream_forest_dark with fade
+    "The shadow becomes a monster. It steps out from the trees, growling louder. Its claws scrape the ground as it moves closer."
+    chiara "Why is this happening to me? What did I do to deserve this?!"
+    "She feels angry, her fists clenching, but the monster doesn’t stop. It roars, making the ground shake."
+    
+    menu:
+        "Scream at the monster":
+            "Chiara yells, her voice echoing through the forest. But the monster only roars back, even louder."
+            jump bargaining_stage
+
         "Run away":
-            $ action = "run"
-            "Chiara's heart races as she turns and runs through the dense forest, the sounds of the monster’s footsteps echoing behind her."
-            jump monster_chase
+            "Chiara turns and runs, her anger turning into fear. The monster chases her, its heavy footsteps shaking the earth."
+            jump bargaining_stage
 
-        "Stand still and face the monster":
-            $ action = "face"
-            "Chiara takes a deep breath and stands still, glaring at the monster. It stops for a moment, then begins to growl menacingly."
-            jump monster_faceoff
+# Stage 3: Bargaining
+label bargaining_stage:
+    
+    play music "bargaining.mp3"
 
-label monster_chase:
-    scene bg forest_dark with dissolve
-    "Chiara's legs burn as she sprints, branches whipping past her. The monster is gaining on her, its growl growing louder with each passing moment."
-    "She can hear its breath behind her, hot and ragged."
-
+    scene bg dream_bridge with fade
+    "Chiara runs until she reaches a broken bridge. Below, a dark river rushes by, and the monster is getting closer."
+    chiara "Please, just let me wake up! I’ll do anything!"
+    "She looks at the monster, hoping it will stop. But it doesn’t. It keeps coming, growling louder."
+    
     menu:
-        "Climb a tree":
-            $ action = "climb"
-            "Chiara leaps toward a large tree, scrambling up the rough bark. She manages to get high enough to escape the monster's reach."
-            jump escape_tree
+        "Try to jump across the bridge":
+            "Chiara leaps, her heart racing. She grabs the edge on the other side, pulling herself up. But the monster is still behind her."
+            jump depression_stage
 
-        "Keep running":
-            $ action = "run_more"
-            "Chiara pushes herself even harder, her fear giving her strength. But the monster is right behind her now, almost within reach."
-            jump final_chase
+        "Stay and face the monster":
+            "Chiara stands still, shaking. 'Maybe if I stop, it will go away,' she thinks. The monster stops, but its glowing eyes watch her closely."
+            jump depression_stage
 
-label monster_faceoff:
-    scene bg forest_dark with dissolve
-    "Chiara faces the monster, her heart pounding. It stares at her with glowing eyes, then snarls."
-    "For a moment, everything is still. Chiara realizes that she has to make a choice if she’s going to survive."
+# Stage 4: Depression
+label depression_stage:
+    
+    play music "depression.mp3"
 
+    scene bg dream_valley with fade
+    "Chiara finds herself in a valley. The sky is grey, and rain starts to fall. She feels tired, like she can’t run anymore."
+    chiara "I can’t do this. It’s too much. Maybe I should just give up."
+    "The monster stands in the distance, watching her but not moving. Its presence feels heavy, like a dark cloud over her."
+    
     menu:
-        "Charge at the monster":
-            $ action = "charge"
-            "With all her might, Chiara charges at the monster, hoping to catch it off guard. But it swipes at her with its sharp claws."
-            jump final_faceoff
+        "Sit down and cry":
+            "Chiara sits in the rain, her tears mixing with the water. She feels small and powerless."
+            jump acceptance_stage
 
-        "Try to talk to the monster":
-            $ action = "talk"
-            "Chiara takes a step forward and speaks to the creature, hoping to reason with it. The monster tilts its head, as if confused."
-            jump strange_communication
+        "Keep walking, slowly":
+            "Chiara drags her feet forward, the rain soaking her clothes. Each step feels harder, but she doesn’t stop."
+            jump acceptance_stage
 
-label escape_tree:
-    scene bg tree_top with dissolve
-    "From the top of the tree, Chiara watches the monster below, frustrated and roaring. She breathes a sigh of relief."
-    "The dream begins to fade, and Chiara feels herself waking up."
-    jump end_dream
+# Stage 5: Acceptance
+label acceptance_stage:
+    
+    play music "acceptance.mp3"
+    
+    scene bg dream_light with fade
+    "The rain stops, and Chiara looks up. A soft light breaks through the clouds. She stands up, feeling a little stronger."
+    "The monster steps closer, but this time, it looks less scary. She realizes it isn’t chasing her anymore."
+    chiara "You’re a part of me, aren’t you? My fear, my sadness… but I’m not afraid of you now."
+    "The monster slowly fades away, and the light becomes brighter. Chiara feels calm, ready to move forward."
 
-label final_chase:
-    scene bg forest_dark with dissolve
-    "The monster reaches out, grabbing Chiara by the arm. She screams, but with a burst of strength, she manages to break free and keep running."
-    "She suddenly finds a cliff ahead and leaps over it, landing in a soft bed of leaves. The monster follows, but disappears as it reaches the edge."
-    jump end_dream
-
-label final_faceoff:
-    scene bg forest_dark with dissolve
-    "Chiara stumbles back as the monster claws at her, but she manages to dodge, running around it in circles."
-    "With a final desperate move, she kicks it and it stumbles backward, vanishing into the darkness."
-    jump end_dream
-
-label strange_communication:
-    scene bg forest_dark with dissolve
-    "To her surprise, the monster doesn't attack. Instead, it takes a step back, as if understanding her words."
-    "It slowly disappears into the mist, leaving Chiara standing alone in the forest."
-    jump end_dream
-
-label end_dream:
-    scene bg bedroom_morning with fade
-    show character chiara awake
-    "Chiara wakes up with a start, her heart still pounding from the nightmare. She looks around, finding herself safe in her bedroom."
-    "The dream was intense, but it's over now. She sighs in relief, though the eerie feeling lingers."
-
-    "With a deep breath, Chiara tries to shake off the unsettling thoughts and starts her day."
     return
