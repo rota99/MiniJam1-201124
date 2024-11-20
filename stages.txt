@@ -1,0 +1,75 @@
+Stage 1: Denial
+
+Setting: The main character is in a dream-like forest, chased by a shadowy figure.
+
+Dialogue:
+
+    Shadowy Figure: "You can’t run forever. Face it."
+    Character: "No... This isn’t happening. I just need to keep moving!"
+
+Choices:
+
+    Run deeper into the forest. (Loops back to the start of the chase.)
+    Turn around and confront the shadow.
+        If chosen, the shadow pauses, and the stage transitions with a whispered, "This is only the beginning."
+
+Stage 2: Anger
+
+Setting: A dark, crumbling battlefield with grotesque monsters snarling.
+
+Dialogue:
+
+    Monster 1: "Blame it on them!"
+    Monster 2: "You should have done more!"
+    Character: "Stop it! Why won’t you leave me alone?"
+
+Choices:
+
+    Fight the monsters. (They keep reappearing stronger.)
+    Approach and talk to the monsters.
+        Monster 1: "We are your rage. Speak to us."
+        Character: "I’m angry because it’s unfair. Because it hurts."
+        The monsters vanish one by one as he acknowledges his feelings.
+
+Stage 3: Bargaining
+
+Setting: A temple with an enormous golden scale. On one side, there’s a glowing orb; on the other, a pile of broken objects.
+
+Dialogue:
+
+    Character: "If I can just make things right, maybe everything will go back to normal."
+    Whispering Voice: "Balance the weight of what was with what is."
+
+Choices:
+
+    Place all the broken objects on the scale. (Tips it unevenly; restart.)
+    Place the orb on the scale. (Tips it too far; restart.)
+    Balance both sides carefully. (Progresses to next stage.)
+
+Stage 4: Depression
+
+Setting: An empty void, only the main character sits in a spotlight.
+
+Dialogue:
+
+    Character: "It’s over. I can’t fix it. I’m... alone."
+    Echoing Voice: "You aren’t alone. You never were."
+
+Choices:
+
+    Call out for help. (A faint light appears in the distance.)
+    Stay silent. (The void grows darker but eventually, a gentle hand pulls him forward.)
+
+Stage 5: Acceptance
+
+Setting: The character wakes up in his room, sunlight streaming through the window.
+
+Dialogue:
+
+    Character: "It wasn’t just a dream... It happened. And I’m still here."
+    Voiceover: "Acceptance doesn’t mean forgetting. It means learning to live with it."
+
+Choices:
+
+    Look out the window. (The world looks brighter.)
+    Close your eyes. (The character breathes deeply, peace in his expression.)
